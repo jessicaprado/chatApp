@@ -3,10 +3,16 @@ var path = require('path');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+
 var port = 8000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-server.listen(port, function(){
-	console.log("stalking you on PORT " + port);
-})
+io.on('connection', function(socket) {
+  console.log('new connection made');
+
+});
+
+server.listen(port, function() {
+  console.log("Listening on port " + port);
+});
