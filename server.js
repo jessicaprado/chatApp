@@ -1,34 +1,22 @@
 var express = require('express');
 var app = express();
-var server = require('http').createServer(app);
-var io = require('socket.io').listen(server);
+var PORT = 3000;
+var socket = require('socket.io');
 
-user = [];
-connections = [];
-var port = 3000;
-
-server.listen(port, function() {
-  console.log("Listening on port " + port);
+var server = app.listen(PORT, function(){
+	console.log("Listening on port " + PORT);
 });
 
-app.get('/', function(req, res){
-	res.sendFile(__dirname + '/index.html')
-})
+//Statid Files
+app.use(express.static('public'));
 
-io.sockets.on('connection', function(socket){
-	connections.push(socket);
-	console.log('Connected: %s sockets connected', connections.length);
+//Socket Setup
+var io = socket(server);
 
-	//disconnect
-	socket.on('disconnect', function(data){
-		connections.splice(connections.indexOf(socket), 1);
-		console.log('Disonnected: %s sockets connected', connections.length);
-	}) 
+io.on('connection', function(socket){
+	console.log('connection made!');
 
-	//send Message
-	socket.on('send message', function(data){
-		console.log(data);
-		io.sockets.emit('new message', {msg:data});
+	socket.on('chat', function(data){
+		io.sockets.emit('chat', data)
 	})
-	
 })
