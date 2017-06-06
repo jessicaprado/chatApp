@@ -9,8 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "electron": "^1.6.10",
     "express": "^4.13.4",
     "path": "^0.12.7",
     "socket.io": "^1.4.5"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^1.4.13"
   }
 }
