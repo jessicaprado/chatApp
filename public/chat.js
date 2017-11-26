@@ -8,12 +8,21 @@ var btn = document.getElementById('send');
 var output = document.getElementById('output');
 var feedback = document.getElementById('feedback');
 
-btn.addEventListener('click', function(){
+
+function chat(){
 	socket.emit('chat', {
 		message: message.value,
 		handle: handle.value
 	})
-})
+}
+
+btn.addEventListener('click', chat);
+
+message.addEventListener('keyup', function(event) {
+	if (event.keyCode === 13) {
+		chat();
+	}
+});
 
 message.addEventListener('keypress', function () {
 	socket.emit('typing', handle.value);
@@ -23,6 +32,7 @@ message.addEventListener('keypress', function () {
 socket.on('chat', function(data){
 	feedback.innerHTML = "";
 	output.innerHTML += '<p><strong>' + data.handle + ':</strong> ' + data.message + '</p>'
+	message.value = "";
 })
 
 socket.on('typing', function (data) {

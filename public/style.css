@@ -1,5 +1,9 @@
+html {
+  height: 100%
+}
+
 body{
-  height: 100vh;
+  height: 97%;
   font-family: 'Nunito';
   background: #70e1f5;
   background: -webkit-linear-gradient(to top, #ffd194, #70e1f5);
@@ -8,10 +12,13 @@ body{
   background-size: cover;
 }
 
+#chat {
+  height: 70%;
+  margin: 10px;
+}
+
 #chat-window{
-  height: 70vh;
-  margin-bottom: 10px;
-  overflow: auto;
+  height: 100%;
   background-color: rgba(245, 245, 245, 0.3);
   border-radius: 15px;
 }
@@ -40,34 +47,53 @@ label{
 }
 
 .user-input {
+  height: 29%;
   border-radius: 15px;
-
+  background-color: rgba(245, 245, 245, 0.3);
   width: 98%;
   margin: auto;
 }
 
-input{
+input,
+textarea {
+  height: 10%;
   margin: auto;
-  padding: 10px 0px;
+  padding: 10px 10px;
   border: 0;
   display: block;
-  width: 95%;
-  background: #fff;
-  border-bottom: 1px solid #eee;
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0.0);
   font-size: 16px;
+  outline: none;
 }
 
+textarea {
+  height: 48%;
+  resize: none;
+}
+
+
 .button-wrap {
-  width: 95%;
+  width: 100%;
   margin: auto;
 }
 
-button{
-  background-color: rgba(245, 245, 245, 0.3);
+button {
+  height: 33%;
+  background-color: rgba(245, 245, 245, 0.5);
   color: #555;
   font-size: 18px;
   border: 0;
-  padding: 12px 0;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  padding: 12px;
   width: 100%;
+  outline: none;
+}
 
+button:hover {
+  background-color: rgba(245, 245, 245, 0.7);
+  cursor: pointer;
 }
