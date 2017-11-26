@@ -12,7 +12,7 @@ The chat will even show if anyone in the group is currently typing a message
 ![alt text](gifs/three.gif)
 
 Other technologies used:
-HTML
-CSS
-Javascript
-Node.js
+1. HTML
+2. CSS
+3. Javascript
+4. Node.js
